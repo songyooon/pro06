@@ -22,9 +22,9 @@
 </head>
 <body>
     <section class="container">
-        <h2>회원 가입</h2>
+        <h2>회원가입</h2>
         <article class="data">
-            <div><h2>회원 가입</h2></div>	 
+            <div><h2>회원가입</h2></div>	 
 		    <br><hr><br>		 
 		    <form th:action="@{/ajax/addUser.do}" th:object="${user}" method="post">              
                 <table class="table">
@@ -32,25 +32,25 @@
                         <tr>
                         	<th><label for="id">아이디</label></th>
                             <td>
-                            	<input type="text" class="form-control" id="id" th:field="*{id}" name="id" placeholder="사용자 아이디">
+                            	<input type="text" class="form-control" id="id" th:field="*{id}" name="id" placeholder="아이디 입력">
                             </td>
                         </tr>
                         <tr>
                         	<th><label for="name">이름</label></th>
                             <td>
-                            	<input type="text" class="form-control" id="name" th:field="*{name}" name="name" placeholder="사용자 이름">
+                            	<input type="text" class="form-control" id="name" th:field="*{name}" name="name" placeholder="이름 입력">
                             </td>
                         </tr>
                         <tr>
                         	<th><label for="pw">비밀번호</label></th>
                             <td>
-                            	<input type="password" class="form-control" id="pw" th:field="*{pw}" name="pw" placeholder="사용자 비밀번호">
+                            	<input type="password" class="form-control" id="pw" th:field="*{pw}" name="pw" placeholder="비밀번호 입력">
                             </td>
                         </tr>
                         <tr>
                         	<th><label for="pw2">비밀번호 확인</label></th>
                             <td>
-                            	<input type="password" class="form-control" id="pw2" name="pw2" placeholder="사용자 비밀번호">
+                            	<input type="password" class="form-control" id="pw2" name="pw2" placeholder="비밀번호 입력">
                             </td>
                         </tr>
                         <tr>
