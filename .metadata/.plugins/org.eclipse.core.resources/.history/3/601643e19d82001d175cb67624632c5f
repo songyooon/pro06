@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<header id="header">
+
+
+
+
+
+
+    <div id="nav-group">
+      <div class="container"> 
+          <nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
+            <div class="navbar-brand">
+              <a href="../index.html" class="logo"><img src="../img//logo/edu.png" width="40" alt="로고"></a>
+              
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start" id="gnb">
+                  <!-- ajax로 메뉴 로딩하여 추가하기 -->
+                  
+  
+                     <div href="@{/board/list}" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                        정책
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="@{/board/list}">
+                                 유아교육
+                           </a>
+                         <a class="navbar-item" href="@{/board/list}">
+                          초·중·고 교육
+                        </a>
+                        <a class="navbar-item" href="@{/board/list}">
+                          대학(원) 교육
+                        </a>
+                      </div> 
+                  </div>     
+                  
+                  <div href="../esg/lotteesg.html" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            소식
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="../esg/lotteesg.html">
+                            공지사항
+                           </a>
+                         <a class="navbar-item" href="../esg/esggrade.html">
+                          보도자료
+                        </a>
+                        <a class="navbar-item" href="../esg/esgnews.html">
+                          홍보자료
+                        </a>
+                      </div> 
+                  </div>
+                  
+                  <div href="../IR/jibae.html" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            정보·법령
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="../IR/jibae.html">
+                                 법령정보
+                           </a>
+                         <a class="navbar-item" href="../IR/joojoo.html">
+                              사전정보공표
+                        </a>
+                        <a class="navbar-item" href="../IR/jaemoo.html">
+                          공공누리
+                    </a>
+                      </div> 
+                  </div>
+
+                  
+                  <div href="../careers/injae.html" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            국민참여·민원
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="../careers/injae.html">
+                            참여·소통
+                           </a>
+                         <a class="navbar-item" href="../careers/chaeyong.html">
+                         민원
+                        </a>
+                        <a class="navbar-item" href="../careers/insa.html">
+                          신고
+                        </a>
+                      </div> 
+                  </div>
+                      <div class="navbar-dropdown cate" id="cate04"></div>
+                  
+                  <div href="../cs/ask.html" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            소개
+                      </a>
+                      <div class="navbar-dropdown single">
+                         <a class="navbar-item" href="../cs/ask.html">
+                          조직도
+                        </a>
+                        <a class="navbar-item" href="../cs/way.html">
+                          소속기관 및 시·도교육청
+                        </a>
+                        <a class="navbar-item" href="../cs/way.html">
+                          찾아오시는 길
+                        </a>
+                      </div> 
+                  </div>
+                  <div class="navbar-dropdown cate" id="cate05"></div>
+                      
+              </div>
+              
+              <div class="navbar-end" id="tnb">
+                <div class="navbar-item">
+                    
+              
+               <div class="buttons">
+                 <a href="../member/join.html" class="button is-danger is-small is-outlined is-rounded">
+                   회원가입
+                 </a>
+                 <a href="../member/login.html" class="button is-danger is-small is-outlined is-rounded">
+                   로그인
+                 </a>
+                   
+               </div>
+              
+            </div>
+          </div>
+            </div>
+          </nav>
+      <script>
+      $(document).ready(function(){
+          $.ajax({
+              url:"/web03/MenuLoadCtrl.html",
+              type:"POST",
+              enctype:"UTF-8",
+              datatype:"json",
+              processData:false,
+              contentType:false, 
+              cache:false,
+              success:function(data){
+                  $(".navbar-dropdown.cate").empty();
+                  var trans = $.parseJSON(data);
+                  $.each(trans, function(key, value){
+                      if(key=="data"){
+                          for(var i=0;i<value.length;i++){
+                              if(value[i].cate=="A"){
+                                  $("#cate01").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="B"){
+                                  $("#cate02").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="C"){
+                                  $("#cate03").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="D"){
+                                  $("#cate04").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="E"){
+                                  $("#cate05").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="F"){
+                                  $("#cate06").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="G"){
+                                  $("#cate07").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              }
+                          }
+                      }
+                  });
+                  
+              }
+          });
+      });
+      </script>
+      </div>
+  </div>
+
+
+
+
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="index.html">교육부</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                     
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">정책</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@{/board/list}">유아교육</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">초·중·고 교육</a></li>
+                            <li><a class="dropdown-item" href="@{/boardw/list}">대학(원) 교육</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">소식</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@{/board/list}">공지사항</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">보도자료</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">홍보자료</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">정보·법령</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@{/board/list}">법령정보</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">사전정보공표</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">공공누리</a></li>
+                        </ul>
+                    </li>
+                    
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">국민참여·민원</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@{/qna/list}">참여·소통</a></li>
+                            <li><a class="dropdown-item" href="@{/qna/list}">민원</a></li>
+                            <li><a class="dropdown-item" href="@{/qna/list}">신고</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">소개</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@{/board/list}">조직도</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">소속기관 및 시·도교육청</a></li>
+                            <li><a class="dropdown-item" href="@{/board/list}">찾아오시는 길</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+			<div th:fragment="tnb" id="tnb" class="collapse navbar-collapse">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+			    	<li class="nav-item"><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/member/login}">로그인</a></li>
+				    <li class="nav-item"><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/member/logout}">로그아웃</a></li>
+				    <li class="nav-item"><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/member/signUp}">회원가입</a></li>
+				    <li class="nav-item"><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/member/info}">내정보</a></li>
+				    <li class="nav-item"><a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/member/admin}">관리자</a></li>
+				</ul>
+			</div>
+        </div>
+    </nav>
+</header>
+<hr>

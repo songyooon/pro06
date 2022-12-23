@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>교육부</title>
+	<th:block th:insert="common/head"></th:block>
+	<style>
+	    .carousel-inner {height: 100vh; padding-top: 110px;}
+	</style>
+	
+</head>
+<body>
+<div class="fluid-container">
+	<th:block th:insert="common/header"></th:block>
+	<div class="container">
+	
+	
+	
+	
+	<div class="content">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./img/main/shopsinsa1.jpg" class="d-block w-100" alt="메인1">
+      </div>
+      <div class="carousel-item">
+        <img src="./img/main/shopsinsa3.jpg" class="d-block w-100" alt="메인2">
+      </div>
+      <div class="carousel-item">
+        <img src="./img/main/shopshanghai2.jpg" class="d-block w-100" alt="메인3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>  
+
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">유치원 알리미</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">교육비 신청시스템</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">학교 알리미</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">교육지원 한눈에</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+</div>
+<br>
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">대학 알리미</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">한국장학재단</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">학점은행제 알리미</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">고입정보 종합 알리미</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+</div>
+<br>
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">대입정보포털 어디가</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">교육비 신청시스템</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">학교 알리미</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">교육지원 한눈에</p>
+      <p class="subtitle">Subtitle</p>
+    </article>
+  </div>
+</div>
+	
+	
+  	</div>
+	<th:block th:insert="common/footer"></th:block>
+	
+	<script>
+		function isMobile(){
+		var UserAgent = navigator.userAgent;
+		if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null)
+		{
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	if(isMobile()){
+		location.href = "/mobile/test1.do";	//모바일페이지
+	} else {
+		location.href = "/";		//PC용 페이지
+	}
+	</script>
+	
+</div>
+</body>
+</html>
