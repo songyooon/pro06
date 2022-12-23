@@ -14,7 +14,4 @@ public class UserDTO {
 	private String name;
 	private String email;
 	private String regdate;
-	private String getId;
-	private String getName;
-	private String getPw;
 }
