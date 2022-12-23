@@ -1,0 +1,15 @@
+
+
+
+
+
+<section class="container">
+	<article class="data">
+		<form>
+			<input type="text" id="id" placeholder="아이디 입력" required />
+			<input type="hidden" id="idck" name="idck" value="no" />
+		</form>
+		<button type="button" id="btn1">아이디 중복 체크</button>
+	</article>
+</section>
+<br><br><hr>

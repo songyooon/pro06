@@ -1,0 +1,7 @@
+package com.shop2.myapp.controller;
+
+@Controller
+@RequestMapping("/mobile/")
+public class MobileController {
+
+}

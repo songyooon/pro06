@@ -1,0 +1,44 @@
+
+
+
+
+
+<section class="container">
+	<article class="data">
+		<form>
+			<input type="text" id="id" placeholder="아이디 입력" required />
+			<input type="hidden" id="idck" name="idck" value="no" />
+		</form>
+		<button type="button" id="btn1">아이디 중복 체크</button>
+	</article>
+</section>
+<br><hr><br>
+
+<script>
+
+$(document).ready(function(){
+	$("#btn1").click(function(){
+		var id = $("#id").val();
+		if(id=="){
+			alert("아이디가 입력되지 않았습니다");
+			
+		}
+		$.ajax({
+			url:"idCheck.do",
+			data:id,
+			contentType:'application/jason;charset=utf-8',
+			method:"POST",
+			dataType:"json"
+		})
+		.done(function(res){
+			console.log(res);
+		})
+		.fail(function(xhr, status, errorThrown){
+			$("#msg").test("아이디 중복 체크를 진행하지 못했습니다");
+			
+		})
+		.always(function(xhr, status){
+			
+		}
+	}
+}

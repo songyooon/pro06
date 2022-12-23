@@ -1,0 +1,44 @@
+package com.shop2.myapp.dto;
+
+public class UserDTO {
+
+	
+	private String id;
+	private String pw;
+	private String name;
+	private String tel;
+	private String addr;
+	private String regdate;
+	private int visited;
+	private int pt;
+
+	
+	public UserDTO() { }
+	
+	public UserDTO(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
+
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+}

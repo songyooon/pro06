@@ -1,0 +1,14 @@
+package com.shop2.myapp.config;
+
+public class SecurityConfiguration {
+
+@SuppressWarnings("deprecation")
+@Configuration
+@EnableWebSecurity
+public class SecurityCinfiguration extends WebSecurityConfigurerAdapter
+
+	@Override
+	protected void 
+	
+	
+}
