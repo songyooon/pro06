@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<header id="header">
+
+
+    <div id="nav-group">
+      <div class="container"> 
+          <nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
+            <div class="navbar-brand">
+              <a href="/" class="logo"><img src="../img/logo/edu.png" alt="로고"></a>
+              
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start" id="gnb">
+                  <!-- ajax로 메뉴 로딩하여 추가하기 -->
+                  
+  
+                     <div href="@{/policy/infantlist}" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                        정책
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="../policy/infantlist.html">
+                                 유아교육
+                           </a>
+                         <a class="navbar-item" href="@{/policy/list}">
+                          초·중·고 교육
+                        </a>
+                        <a class="navbar-item" href="@{/policy/list}">
+                          대학(원) 교육
+                        </a>
+                      </div> 
+                  </div>     
+                  
+                  <div href="@{/board/list}" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            소식
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="@{/board/list}">
+                            공지사항
+                           </a>
+                         <a class="navbar-item" href="@{/board/list}">
+                          보도자료
+                        </a>
+                        <a class="navbar-item" href="@{/board/list}">
+                          홍보자료
+                        </a>
+                      </div> 
+                  </div>
+                  
+                  <div href="@{/board/list}" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            정보·법령
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="@{/board/list}">
+                                 법령정보
+                           </a>
+                         <a class="navbar-item" href="@{/board/list}">
+                              사전정보공표
+                        </a>
+                        <a class="navbar-item" href="@{/board/list}">
+                          공공누리
+                    </a>
+                      </div> 
+                  </div>
+
+                  
+                  <div href="@{/board/list}" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            국민참여·민원
+                      </a>
+                      <div class="navbar-dropdown single">
+                           <a class="navbar-item" href="@{/board/list}">
+                            참여·소통
+                           </a>
+                         <a class="navbar-item" href="@{/board/list}">
+                         민원
+                        </a>
+                        <a class="navbar-item" href="@{/board/list}">
+                          신고
+                        </a>
+                      </div> 
+                  </div>
+                      <div class="navbar-dropdown cate" id="cate04"></div>
+                  
+                  <div href="@{/board/list}" class="navbar-item has-dropdown is-hoverable single">
+                      <a class="navbar-link is-arrowless">
+                            소개
+                      </a>
+                      <div class="navbar-dropdown single">
+                         <a class="navbar-item" href="@{/board/list}">
+                          조직도
+                        </a>
+                        <a class="navbar-item" href="@{/board/list}">
+                          소속기관 및 시·도교육청
+                        </a>
+                        <a class="navbar-item" href="@{/board/list}">
+                          찾아오시는 길
+                        </a>
+                      </div> 
+                  </div>
+                  <div class="navbar-dropdown cate" id="cate05"></div>
+                      
+              </div>
+              
+              <div class="navbar-end" id="tnb">
+                <div class="navbar-item">
+                    
+              
+               <div class="buttons">
+                 <a href="@{/member/signUp}" class="button is-info is-small is-outlined is-rounded">
+                   회원가입
+                 </a>
+                 <a href="@{/member/login}" class="button is-info is-small is-outlined is-rounded">
+                   로그인
+                 </a>
+                                  <a href="@{/member/logout}" class="button is-info is-small is-outlined is-rounded">
+                   로그아웃
+                 </a>
+                                  <a href="@{/member/info}" class="button is-info is-small is-outlined is-rounded">
+                   내정보
+                 </a>
+                                  <a href="@{/member/admin}" class="button is-info is-small is-outlined is-rounded">
+                   관리자
+                 </a>
+                   
+               </div>
+              
+            </div>
+          </div>
+            </div>
+          </nav>
+      <script>
+      $(document).ready(function(){
+          $.ajax({
+              url:"/web03/MenuLoadCtrl.html",
+              type:"POST",
+              enctype:"UTF-8",
+              datatype:"json",
+              processData:false,
+              contentType:false, 
+              cache:false,
+              success:function(data){
+                  $(".navbar-dropdown.cate").empty();
+                  var trans = $.parseJSON(data);
+                  $.each(trans, function(key, value){
+                      if(key=="data"){
+                          for(var i=0;i<value.length;i++){
+                              if(value[i].cate=="A"){
+                                  $("#cate01").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="B"){
+                                  $("#cate02").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="C"){
+                                  $("#cate03").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="D"){
+                                  $("#cate04").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="E"){
+                                  $("#cate05").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="F"){
+                                  $("#cate06").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              } else if(value[i].cate=="G"){
+                                  $("#cate07").append("<a href='/web03/GetTourDetailCtrl.html?no="+value[i].no+"'>"+value[i].place+"</a>");
+                              }
+                          }
+                      }
+                  });
+                  
+              }
+          });
+      });
+      </script>
+      </div>
+  </div>
+
+
+</header>
+<hr>

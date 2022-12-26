@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>유아교육</title>
+	
+</head>
+<body>
+<div class="fluid-container">
+	
+	<div class="container">
+	<h2>유아교육</h2>
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th><abbr title="Num">번호</abbr></th>
+                      <th><abbr title="Title">제목</abbr></th>
+                      <th><abbr title="Comment">등록자</abbr></th>
+                      <th><abbr title="Resdate">등록일</abbr></th>
+                      <th><abbr title="Visited">조회수</abbr></th>
+                      
+                    </tr>
+                  </thead>
+                   <tbody>
+                   
+                    <tr>
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+                      <td>
+                          <a href="/pro04/GetEsgDetailCtrl.html?no=1">2022년 유치원 현황(2022.04.1. 기준, 교육통계자료)
+                      </td>
+                      <td>
+                      최미희
+                      </td>
+                      <td>
+                      
+                      </td>
+                      <td>
+                      
+                      </td>
+
+                    </tr>
+                    
+                    <tr>
+                      <td>2</td>
+
+                      <td>
+                          <a href="/pro04/GetEsgDetailCtrl.html?no=1">2022학년도 유아학비 지원계획 안내
+                     </a>
+                      </td>
+                      <td>
+                      이강원
+                      </td>
+                      <td>
+                      
+                      </td>
+                      <td>
+                      
+                      </td>
+
+                    </tr>
+                    
+                    <tr>
+                      <td>3</td>
+
+                      <td>
+                          <a href="/pro04/GetEsgDetailCtrl.html?no=1">2021년 유치원 현황(2022.04.1. 기준, 교육통계자료)</a>
+                      </td>
+                      <td>
+                      심정산
+                      </td>
+                      <td>
+                      
+                      </td>
+                      <td>
+                      
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <td>4</td>
+
+                      <td>
+                          <a href="/pro04/GetEsgDetailCtrl.html?no=1">2022학년도 유치원 원비 인상률 산정방법 고시</a>
+                      </td>
+                      <td>
+                      정지은
+                      </td>
+                      <td>
+                      
+                      </td>
+                      <td>
+                      
+                      </td>
+                      
+                    </tr>
+                    
+                    
+                 
+              </tbody>
+            </table>
+            
+            <div class="buttons">
+              <a href="/pro04/about/addEsgnews.html" class="button is-danger is-small is-outlined is-rounded">등록</a>
+            </div>
+
+  	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>유아교육</title>
+	
+</head>
+<body>
+<div class="fluid-container">
+	
+	<div class="container">
+	<h2>유아교육</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>등록자</th>
+					<th>등록일</th>
+					<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="policy : ${infantlist}">
+					<td><a th:href="@{/policy/detail(id=${policy.id})}" th:text="${policy.id}"></a></td>
+					<td th:text="${sample.pw}"></td>
+					<td th:text="${policy.vcnt}"></td>
+				</tr>
+			</tbody>
+		</table>
+  	</div>
+</div>
+</body>
+</html>
